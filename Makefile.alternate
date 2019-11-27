@@ -1,0 +1,23 @@
+CC = cc
+
+CFLAGS = -O
+
+CSRCS = inputseed.c compb.c weights.c learn.c
+
+COBJS = inputseed.o compb.o weights.o learn.o
+
+MSRCS = interface.c draw.c XButil.c ./nxhelp/nxhelp.c
+
+MOBJS = interface.o draw.o XButil.o nxhelp.o
+
+SRCS = $(MSRCS) $(CSRCS)
+
+OBJS = $(MOBJS) $(COBJS)
+
+LIBS = -lXm -lXt -lX11 -lm
+
+/tmp/neuralnet :  $(OBJS)
+	$(CC) -o /tmp/neuralnet $(OBJS) $(LIBS)
+
+nxhelp.o : ./nxhelp/nxhelp.c
+	$(CC) -c ./nxhelp/nxhelp.c

@@ -1,0 +1,278 @@
+[-NXHelpFile NeuralNet ver 1.0-]
+/*
+ * NeuralNet - help file
+ *      Version 1.0, 9/8/92
+ *      by Eugene Hodges
+ *      Code and display Copyright 1992, by Eugene Hodges.
+ *      All Rights Reserved
+ */
+<About NeuralNet>
+
+
+                                     NeuralNet
+
+
+                                    Version 1.0
+
+                                   by Buck Hodges
+                       Copyright 1992, 1993 by Eugene W. Hodges
+
+
+     Comments, suggestions and the like can be sent to ewhodges@eos.ncsu.edu
+
+
+              The help facility (NXHelp 1.1) is copyright 1992 by 
+                    Lance Lovette (ltlovett@eos.ncsu.edu).
+
+<!>
+<Introduction>
+
+                                 Introduction
+
+   Welcome to neural networks and NeuralNet.  NeuralNet allows you to
+graphically create, edit, train, and test neural networks.  This help file
+will explain how to create, edit, train, and test a neural network using this
+program.  It is assumed, however, that you already have a background in neural
+networks, as only the program's operation will be discussed here.
+
+<!>
+<Topics->
+<!>
+<   Creating a Network>
+
+                                Creating a Network
+
+   To create a new neural network, choose 'New' from the 'Network' menu. 
+Select the 'Input' text box by clicking on it and type the number of input
+nodes.  Press return and type the number of ouput nodes in the 'Output' text
+box.  Click on a number below 'Number of Hidden Layers' to select the proper
+number of hidden layers.  Click on the 'First Layer' text box and enter the
+number of nodes in the first hidden layer.  Repeat for second and third hidden
+layers if necessary.  Also, pressing return advances to the next text box
+except the last hidden layer text box which advances to the 'OK' button.
+   When finished, click on 'OK' (or press return if 'OK' button already
+highlighted).  This will create a layout of unconnected, numbered nodes.
+
+   Now the network must be connected.  This may be accomplished in one of two
+ways:  fully connecting the network or explicitly making individual
+connections.  Fully connecting a network is easily done by selecting 'Fully
+Connect' from the 'Network' menu.  This connects each node in a layer to all
+of the nodes in the layer immediately previous to it.  All possible
+connections from one layer to the next layer are made.
+   Explicitly making each connection is nearly as easy.  Nodes are connected
+in ranges:  A range of nodes in one layer is connected to a range of nodes in
+the next layer (the layer to the right of the first layer).  An example
+connection would be nodes 0 through 5 in the input layer connected to nodes 10
+through 14 in the first hidden layer.  In the range of connected nodes, each
+node in the left layer is connected to all nodes in the right layer.  This
+connection is specified in the program by clicking with the first mouse button
+on the first node in the range in the left layer, then the last node in the
+range in the left layer, then the first node in the range in the right layer,
+and finally the last node in the range in the right layer.  Only four clicks
+are necessary to specify the connection of nodes and the nodes are then
+connected automatically.  The first two selections can be in any order and can
+be the same if only one node is desired for that range.  The same is true for
+the right layer.  The right layer must be immediately to the right of left
+layer.
+
+   A node that has just be selected may be unselected by clicking on it with
+the second mouse button.  This allows you to change that selection, and only
+works for the immediately previous selection.
+   The network may be saved after it is complete.  Only complete (all nodes
+connected to at least one other node) networks may be saved.
+
+<   Editing a Network>
+
+                                Editing a Network
+
+   To edit a completed network, open a network file from the 'Open' option in 
+the 'Network' menu if a network is not already open.  Choose 'Disconnect' from
+the 'Network' menu.  Click on 'OK' button in dialog that appears to continue
+with the disconnect procedure.  The cursor will change to indicate it is time
+to select the node(s) to disconnect.  Select a group of nodes to disconnect by
+clicking with the first mouse button on a node in the left layer of the group
+to disconnect.  A group is specified by a range of nodes sending output to
+another range of nodes.  You should click on a node in the range sending
+output (left layer).  All of the nodes in the group selected will be
+highlighted.  Another dialog will appear now and ask you to confirm the
+disconnection.  If you wish to finish it, click on the 'OK' button.  If not,
+click on the 'Cancel' button.
+
+<   Fully Connecting a Network>
+
+                            Fully Connecting a Network
+  
+   To fully connect the current network, choose the 'Fully Connect' option in
+the 'Network' menu and click on the 'OK' button in the dialog.  This will
+fully connect the network.
+
+<   Saving a Network>
+
+                                 Saving a Network
+
+   A completed network may be saved by choosing 'Save' from the 'Network' menu
+if the network already has a file name.  Otherwise, choose 'Save As...' to see
+a list of currently existing .net files and then type in the name of the
+network file in the text box under 'Selection' on the dialog.  If the file
+already exists, you will be asked if you wish to overwrite the existing file.
+
+<!>
+<   Opening Files for Training>
+
+                            Opening Files for Training
+
+   Before beginning training, the following must have ocurred:
+
+      1.  A network was opened from a file or created and completed
+      2.  A pattern file opened
+      3.  A weights file opened or new weights generated
+
+   To open a network, choose 'Open' from the 'Network' menu.  All files with
+the .net file extension will be shown.  To show other files, change the end of
+the text shown in the text box under 'Filter.'  Open a file by double-clicking
+on the name or by clicking once on the name and then click on the 'Open'
+button.
+   A network may be created as described in the 'Creating a Network' topic.
+
+   To open a pattern file to use in training the network, choose 'Open' from
+the 'Pattern' menu.  All files with the .pat file extension will be shown.  To
+show other files, change the end of the text shown in the text box under 
+'Filter.'  Open a file by double-clicking on the name or by clicking once on 
+the name and then click on the 'Open' button.
+
+   To open a weights file to be modified in training the network, choose 'Open'
+from the 'Weights' menu.  All files with the .pat file extension will be shown.
+To show other files, change the end of the text shown in the text box under 
+'Filter.'  Open a file by double-clicking on the name or by clicking once on 
+the name and then click on the 'Open' button.
+   Weights may be generated by choosing 'Generate' from the 'Weights' menu. 
+If a weights file is already open or weights have already been generated,
+choose 'Close' first and then 'Generate.'  You may wish to choose to generate
+new weights because the weights generated are random and if your network is
+not converging, this may help.
+
+<   Setting Number of Epochs>
+
+                             Setting Number of Epochs
+
+   To set the number of epochs for the network to trained, click and drag the
+scale slider to the desired number.  The scale is located under the 'Learn:  
+Number of Epochs' title.  The value of the scale can be changed by one by 
+clicking in the "trough" of the scale.  The trough is the shaded portion in
+which the scale slider sits.  Clicking and holding in the trough will cause it
+to continuously increment or decrement by one.  For increment, click to the
+right of the slider.  For decrement, click to the left of the slider.
+
+<   Starting Training>
+
+                                Starting Training
+
+   To begin training, click on the 'Learn' button.  The total epochs and total
+sum of squares will be displayed to the right of the 'Learn' button.  These
+values are reset when a different pattern or weights file is changed.
+
+<   Changing the Momentum>
+
+                              Changing the Momentum
+
+   To change the momentum used in the back propagation formulas, choose
+'Momentum' from the 'Network' menu and enter the new value.  Click on the 'OK'
+button to make the change or the 'Cancel' button to not make the change.
+
+Note:  The momentum is reset to the default (0.1) when the current network
+       file is closed.
+
+<   Changing the Gain>
+
+                                 Changing the Gain
+
+   To change the gain used in the back propagation formulas, choose 'Gain'
+from the 'Network' menu and enter the new value.  Click on the 'OK' button to
+make the change or the 'Cancel' button to not make the change.
+
+Note:  The gain is reset to the default (0.5) when the current network file is
+       closed.
+
+<!>
+<   Testing the Network>
+
+                                Testing the Network
+
+   To test the current network, choose 'Test' from the 'Pattern' menu.  The
+dialog for testing the network provides a complete facility for editing or 
+creating pattern files and applying the patterns to the network.
+
+   The network may easily be tested in two ways:  typing in the test patterns
+or stepping through a pattern file.
+
+   The first method is very simple.  Click the first mouse button in the
+single-line text box under 'Test Pattern' and type in a pattern with which to
+test the network.  A test pattern must consist of as many numbers as there are
+input nodes, otherwise an error will be generated.  After typing in the test 
+pattern, click on the 'Test' button.  The test pattern values will be shown to
+the left of the input nodes and the output values will be shown to the right
+of the output nodes.
+   
+   The second method is discussed in the topic "Stepping Through Patterns."
+
+
+<      Files>
+
+                                    Files
+
+   A pattern file may be opened for use in testing the network by choosing
+'File -> Open' in the test dialog.  The pattern can then be edited and/or used
+for testing the network.  The file, if edited, may be saved by choosing 
+'File -> Save.'  If the file already exists, you will be asked if you wish to
+overwrite it.  Also, if the format of the file is not the same as the regular
+.pat files, consider using a different extension since such a file will not be
+compatible with the format expected of a .pat file used in training a network.
+
+
+<      Pattern File Format>
+
+                              Pattern File Format
+
+   The .pat file format:
+
+pXXX - - - - - - - - - - - - - - - - -
+     ^              ^^               ^
+     | input values || output values |
+
+where 'XXX' is some number and '-' is a number, integer or real.  There are
+usually many lines of this format in a .pat file.  The test pattern dialog can
+be used to create these files if this format is followed.
+
+   The number of input values must equal the number of input nodes in the
+network and the number of output values must equal the number of output nodes
+in the network.  The output values are the correct outputs for the input
+values and are used in training but automatically stripped off in testing.
+
+NOTE:  Each complete pattern should occupy only one line.
+
+
+<      Stepping Through Patterns>
+
+                           Stepping Through Patterns
+
+   The second method to test a network is to open a .pat (or other pattern
+file).  The contents of the file will be shown in the top text box.  The 
+patterns in the upper text box may now be easily stepped through by clicking 
+on the 'Step' button.  This will cause the dialog to start at the top of the 
+upper text box and sequentially step through each line of patterns and display
+the pattern currently being applied to the network in the text box under 
+'Test Pattern.'
+
+   The step function will start at the beginning of the upper text box as
+indicated previously or will start on a user-selected line if desired.  To
+have the step function start on a specific pattern, click with the first mouse
+button on the pattern line intended to be the first pattern tested and then on
+the 'Set Step' button.  Now, pressing the 'Step' button will begin applying
+test patterns to the network beginning with the one chosen.  The 'Clear Step'
+button will reset the step function to start with the first pattern in the
+upper text box.
+
+   This feature is very useful for easily applying all of the patterns in a
+given pattern file to the network.
+
+<END>

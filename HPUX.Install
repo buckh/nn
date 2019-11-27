@@ -1,0 +1,71 @@
+Package name:     neuralnet
+Version number:   2.0
+Original author:  Eugene W. Hodges, IV <ewhodges@eos.ncsu.edu>
+Original URL:     http://scis.nova.edu/~guild/
+HP-UX URL:        http://hpux.connect.org.uk/hppd/cgi-bin/search?package=&term=neuralnet-
+Install tree:     /opt/neuralnet
+Report bugs to:   rik@connect.org.uk
+Tested on:        HP 9000/780/C160 running HP-UX 11.00
+C compiler used:  Version A.11.01.03
+Purpose:
+Motif neural net package. NeuralNet is a GUI to the designing, training, and
+evaluating of neural networks using the backpropagation training algorithm.
+Simple sample network, pattern, and weights files are included. No explanation
+of the file formats are included except the pattern files, which are explained
+in the help file supplied with the program. The point being that the program
+takes care of the generation of the other two files, network and weights, for
+the user. The pattern files must be created by the user. All file formats are
+in text (ASCII).
+Date archived:    Thu  1 Jun 2000
+
+-------------------------------------------------------------------------------
+
+System:
+======
+	HP-UX shin B.11.00 A 9000/780
+
+URL:
+====
+	
+
+HP Porting Changes:
+===================
+
+  Configuration Files:
+      configure ---> Added HP overrides. 
+      Makefile.in -> added HP paths.
+
+ nxhelp/nxhelp.c -> We got a compilation error ...
+
+  cc: "/usr/include/strings.h", line 31: error 1000: Unexpected symbol: "(".
+
+  The only solution is not to use strings.h???
+
+  |#ifndef __hpux
+  |#include <strings.h>	/* Include file for string operations */
+  |#endif
+
+ There's a hardcoded path in interface.c (HELP_FILE).
+
+Building:
+=========
+
+  Run "configure" || "xmkmf" to re-generate the Makefiles. 
+
+  Run "make" in the top level dir.
+
+  Use "make -n install" to check the defaults, then "make install"
+
+
+
+Installed:
+==========
+ By
+ --     [stephie@connect.org.uk]
+ On
+ --	[ 01/06/00 ]
+ 
+
+
+       HPUX Porting and Archive Centre, Connect, Liverpool University.
+  __/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/__/

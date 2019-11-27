@@ -1,0 +1,37 @@
+#
+# Imakefile for NeuralNet
+#    type 'xmkmf' and then 'make' to compile neuralnet
+#
+
+DATAFILES = netexamples/2bitadder.net netexamples/2bitadder2hidlayers.net \
+            netexamples/add.pat netexamples/good_adder.wts \
+            netexamples/nine3.net netexamples/nine3.pat netexamples/ninie3.pat \
+            netexamples/parity.net netexamples/parity.pat netexamples/xor.net \
+            netexamples/xor.pat netexamples/xor.wts neuralnet.hlp
+
+#ifdef HPArchitecture
+      CCOPTIONS =  -I/usr/include/Motif1.2 -Ae -w
+   DEPXMOTIFLIB =  /usr/lib/Motif1.2/libXm.a
+      XMOTIFLIB =  -L/usr/lib/Motif1.2 -lXm
+#else
+   DEPXMOTIFLIB =  $(USRLIBDIR)/libXm.a
+      XMOTIFLIB =  -lXm
+#endif
+
+LOCAL_LIBRARIES = $(XMOTIFLIB) $(XTOOLLIB) $(XLIB)
+  SYS_LIBRARIES = -lm
+           SRCS = inputseed.c compb.c weights.c learn.c\
+                  interface.c draw.c XButil.c ./nxhelp/nxhelp.c
+           OBJS = inputseed.o compb.o weights.o learn.o\
+                  interface.o draw.o XButil.o nxhelp.o
+       PROGRAMS = neuralnet
+
+ComplexProgramTarget(neuralnet)
+
+InstallMultipleDestFlags(install,$(DATAFILES),$(LIBDIR)/neuralnet,$(INSTDATFLAGS))
+
+nxhelp.o:  ./nxhelp/NXHelp.h
+	$(CC) -c $(CFLAGS) ./nxhelp/nxhelp.c
+
+interface.o:  interface.h draw.h XButil.h header.h
+draw.c:       interface.h draw.h XButil.h

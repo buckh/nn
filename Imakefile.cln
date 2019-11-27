@@ -1,0 +1,23 @@
+#
+# Imakefile for NeuralNet
+#    type 'xmkmf' and then 'make' to compile neuralnet
+#
+
+   DEPXMOTIFLIB =  $(USRLIBDIR)/libXm.a
+      XMOTIFLIB =  -lXm
+
+LOCAL_LIBRARIES = $(XMOTIFLIB) $(XTOOLLIB) $(XLIB)
+  SYS_LIBRARIES = -lm
+           SRCS = inputseed.c compb.c weights.c learn.c\
+                  interface.c draw.c XButil.c ./nxhelp/nxhelp.c
+           OBJS = inputseed.o compb.o weights.o learn.o\
+                  interface.o draw.o XButil.o nxhelp.o
+       PROGRAMS = neuralnet
+
+ComplexProgramTarget(neuralnet)
+
+nxhelp.o:  ./nxhelp/NXHelp.h
+	$(CC) -c $(CFLAGS) ./nxhelp/nxhelp.c
+
+interface.o:  interface.h draw.h XButil.h header.h
+draw.c:       interface.h draw.h XButil.h

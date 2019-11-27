@@ -1,0 +1,70 @@
+.TH nerualnet 1 "Release 2 X Version 0"
+.SH NAME
+.B neuralnet
+\ - graphical neural network application
+.SH DESCRIPTION
+.I Neuralnet
+is a graphical user interface to the designing, training,
+.br
+and evaluating of neural networks using the backpropagation
+.br
+training algorithm.
+Simple sample network, pattern, and weights files 
+.br
+are included.  
+.br
+No explanation of the file formats are included except the pattern
+.br
+files, which are explained in the help file supplied with the program.
+.br
+The point being that the program takes care of the generation of the
+.br
+other two files, network and weights, for the user.  The pattern files
+.br
+must be created by the user.  All file formats are in text (ASCII).
+
+.PP
+
+.SH COPYRIGHT
+System Information:
+.br
+.I NeuralNet
+\is written in X Windows Version 11 Release 4 and uses
+.br
+the Motif widget set version 1.1.3.
+.br
+
+Acknowledgements:
+.br
+Thanks to Dr. John C. Sutton, III, for funding this program and making
+.br
+it available to the world.
+.br
+Copyright Information:
+.br
+Copyright 1992, 1993 by Eugene W. Hodges, IV
+.br
+All Rights Reserved
+.br
+Permission to use, copy, and distribute this software and text for
+.br
+non-commercial purposes and without fee is hereby granted, provided 
+.br
+that this notice appears in all copies.
+.br
+The author disclaims all warranties with regard to the software or 
+.br
+text including all implied warranties of merchantability and fitness.
+.br
+In no event shall the author or NCSU be liable for any special,
+.br
+indirect or cosequential damages or any damages whatsoever 
+.br
+resulting from loss of use, data or profits, whether in an 
+.br
+action of contract, negligence or other tortious action, 
+.br
+arising out of or in connection with the use or performance 
+.br
+of this software or text.
+.br
